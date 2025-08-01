@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Realistic Laptop Keyboard with RGB Hover</title>
+  <style>
+    body {
+      background: #1e1e2f;
+      display: flex;
+      justify-content: center;
+      padding: 2em;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #fff;
+    }
+
+    .keyboard {
+      background: #2a2a3b;
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .row {
+      display: flex;
+      gap: 6px;
+    }
+
+    .key {
+      background: #3b3b4f;
+      color: #e0e0e0;
+      border: 1px solid #4a4a6a;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 14px 0;
+      text-align: center;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      transition: all 0.2s ease;
+      user-select: none;
+      position: relative;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .key::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: linear-gradient(270deg, red, yellow, lime, cyan, blue, magenta, red);
+      background-size: 400% 400%;
+      opacity: 0;
+      z-index: -1;
+      transition: opacity 0.2s ease;
+    }
+
+    .key:hover::before {
+      animation: rgb-shift 3s infinite linear;
+      opacity: 1;
+    }
+
+    .key:hover {
+      color: white;
+      transform: translateY(-3px);
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+
+    @keyframes rgb-shift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .tiny { width: 44px; }
+    .small { width: 60px; }
+    .medium { width: 90px; }
+    .large { width: 130px; }
+    .xlarge { width: 300px; }
+
+    .spacer {
+      width: 30px;
+    }
+  </style>
+</head>
+<body>
+  <div class="keyboard">
+<div class="row">
+      <div class="key tiny">Esc</div>
+      <div class="spacer"></div>
+      <div class="key tiny">F1</div>
+      <div class="key tiny">F2</div>
+      <div class="key tiny">F3</div>
+      <div class="key tiny">F4</div>
+      <div class="spacer"></div>
+      <div class="key tiny">F5</div>
+      <div class="key tiny">F6</div>
+      <div class="key tiny">F7</div>
+      <div class="key tiny">F8</div>
+      <div class="spacer"></div>
+      <div class="key tiny">F9</div>
+      <div class="key tiny">F10</div>
+      <div class="key tiny">F11</div>
+      <div class="key tiny">F12</div>
+    </div>
+
+    <div class="row">
+      <div class="key tiny">~</div>
+      <div class="key tiny">1</div>
+      <div class="key tiny">2</div>
+      <div class="key tiny">3</div>
+      <div class="key tiny">4</div>
+      <div class="key tiny">5</div>
+      <div class="key tiny">6</div>
+      <div class="key tiny">7</div>
+      <div class="key tiny">8</div>
+      <div class="key tiny">9</div>
+      <div class="key tiny">0</div>
+      <div class="key tiny">-</div>
+      <div class="key tiny">=</div>
+      <div class="key medium">Backspace</div>
+    </div>
+
+    <div class="row">
+      <div class="key small">Tab</div>
+      <div class="key tiny">Q</div>
+      <div class="key tiny">W</div>
+      <div class="key tiny">E</div>
+      <div class="key tiny">R</div>
+      <div class="key tiny">T</div>
+      <div class="key tiny">Y</div>
+      <div class="key tiny">U</div>
+      <div class="key tiny">I</div>
+      <div class="key tiny">O</div>
+      <div class="key tiny">P</div>
+      <div class="key tiny">[</div>
+      <div class="key tiny">]</div>
+      <div class="key tiny">\</div>
+    </div>
+
+    <div class="row">
+      <div class="key medium">Caps Lock</div>
+      <div class="key tiny">A</div>
+      <div class="key tiny">S</div>
+      <div class="key tiny">D</div>
+      <div class="key tiny">F</div>
+      <div class="key tiny">G</div>
+      <div class="key tiny">H</div>
+      <div class="key tiny">J</div>
+      <div class="key tiny">K</div>
+      <div class="key tiny">L</div>
+      <div class="key tiny">;</div>
+      <div class="key tiny">'</div>
+      <div class="key medium">Enter</div>
+    </div>
+
+    <div class="row">
+      <div class="key large">Shift</div>
+      <div class="key tiny">Z</div>
+      <div class="key tiny">X</div>
+      <div class="key tiny">C</div>
+      <div class="key tiny">V</div>
+      <div class="key tiny">B</div>
+      <div class="key tiny">N</div>
+      <div class="key tiny">M</div>
+      <div class="key tiny">,</div>
+      <div class="key tiny">.</div>
+      <div class="key tiny">/</div>
+      <div class="key large">Shift</div>
+    </div>
+
+    <div class="row">
+      <div class="key small">Ctrl</div>
+      <div class="key small">Fn</div>
+      <div class="key small">Win</div>
+      <div class="key small">Alt</div>
+      <div class="key xlarge">Space</div>
+      <div class="key small">Alt</div>
+      <div class="key small">Menu</div>
+      <div class="key small">Ctrl</div>
+    </div>
+
+    <div class="row" style="justify-content: center;">
+      <div class="key tiny">←</div>
+      <div class="key tiny">↓</div>
+      <div class="key tiny">→</div>
+    </div>
+  </div>
+</body>
+</html>
